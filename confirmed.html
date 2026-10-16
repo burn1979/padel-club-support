@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>Return to Padel Club</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#182c25;background:#f7f7f0}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:28px}.card{width:100%;max-width:560px;padding:clamp(28px,7vw,54px);border:1px solid #e2e6dc;border-radius:28px;background:#fff}.mark{width:58px;height:58px;padding:14px;border-radius:50%;color:#dce89a;background:#244b3c}.eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-top:30px}h1{font:500 clamp(40px,8vw,58px)/1.05 Georgia,serif;letter-spacing:-1.5px;margin:18px 0 24px}p{font-size:16px;line-height:1.7;color:#627168}.button{display:block;margin:30px 0 20px;padding:16px 22px;border-radius:14px;background:#244b3c;color:#fff;text-decoration:none;text-align:center;font-weight:600}a{color:#244b3c;text-underline-offset:4px}a:focus-visible{outline:3px solid #244b3c;outline-offset:5px}.help{font-size:13px}.help a{white-space:nowrap}
+</style>
+</head>
+<body>
+<main class="card">
+<svg class="mark" viewBox="0 0 30 36" aria-hidden="true"><g stroke="currentColor" fill="none" stroke-width="1.2"><rect x="5" y="2" width="20" height="32" rx="1"/><path d="M5 9h20M5 27h20M15 9v18M2 18h26"/></g></svg>
+<div class="eyebrow">Your Padel Club account</div>
+<h1 id="heading">Back to your club.</h1>
+<p id="message">After confirming your email, open Padel Club and sign in under Settings with the email and password you chose.</p>
+<a class="button" href="padelclub://">Open Padel Club</a>
+<p class="help">Already using another device? Open the app on your iPhone. <a href="./#help">Get help</a> · <a href="./#privacy">Privacy</a></p>
+</main>
+<script>
+// The app signs in separately. Never save, send, or pass email-link tokens to it.
+const fragment = new URLSearchParams(location.hash.slice(1));
+const query = new URLSearchParams(location.search);
+const failed = fragment.has('error') || fragment.has('error_code') || query.has('error') || query.has('error_code');
+const confirmed = fragment.has('access_token') && fragment.get('type') === 'signup';
+history.replaceState(null, '', location.pathname);
+if (failed) {
+  document.getElementById('heading').textContent = 'Let’s try that again.';
+  document.getElementById('message').textContent = 'This confirmation link could not be used. It may have expired or already been opened. Try signing in in Padel Club; if your email still needs confirmation, contact support for help.';
+} else if (confirmed) {
+  document.getElementById('heading').textContent = 'You’re ready to play.';
+  document.getElementById('message').textContent = 'Your email confirmation link has been accepted. Open Padel Club, go to Settings, and sign in with the email and password you chose.';
+}
+</script>
+</body>
+</html>
