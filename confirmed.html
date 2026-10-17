@@ -13,9 +13,9 @@
 <body>
 <main class="card">
 <svg class="mark" viewBox="0 0 30 36" aria-hidden="true"><g stroke="currentColor" fill="none" stroke-width="1.2"><rect x="5" y="2" width="20" height="32" rx="1"/><path d="M5 9h20M5 27h20M15 9v18M2 18h26"/></g></svg>
-<div class="eyebrow">Your Padel Club account</div>
+<div class="eyebrow">Your Padel Club membership</div>
 <h1 id="heading">Back to your club.</h1>
-<p id="message">After confirming your email, open Padel Club and sign in under Settings with the email and password you chose.</p>
+<p id="message">After confirming your email, open Padel Club and choose Member sign in under Settings with the email and password you chose.</p>
 <a class="button" href="padelclub://">Open Padel Club</a>
 <p class="help">Already using another device? Open the app on your iPhone. <a href="./#help">Get help</a> · <a href="./#privacy">Privacy</a></p>
 </main>
@@ -31,7 +31,7 @@ if (failed) {
   document.getElementById('message').textContent = 'This confirmation link could not be used. It may have expired or already been opened. Try signing in in Padel Club; if your email still needs confirmation, contact support for help.';
 } else if (confirmed) {
   document.getElementById('heading').textContent = 'You’re ready to play.';
-  document.getElementById('message').textContent = 'Your email confirmation link has been accepted. Open Padel Club, go to Settings, and sign in with the email and password you chose.';
+  document.getElementById('message').textContent = 'Your email confirmation link has been accepted. Open Padel Club, go to Settings, choose Member sign in, and sign in with the email and password you chose.';
 }
 </script>
 </body>
